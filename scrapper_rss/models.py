@@ -11,7 +11,7 @@ class BaseModel(models.Model):
 
 
 class RSSTypes(BaseModel):
-    last_fetch = models.DateTimeField()
+    last_fetch = models.DateTimeField(null=True)
     active = models.BooleanField(default=True)
     type = models.CharField(max_length=100)
     url = models.TextField()
