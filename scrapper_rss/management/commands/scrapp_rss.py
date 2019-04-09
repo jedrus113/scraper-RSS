@@ -12,7 +12,7 @@ from scrapper_rss.models import RSSTypes, RSSData
 
 
 class Command(BaseCommand):
-    help = 'Closes the specified poll for voting'
+    help = 'Fetching new data from registered rss channels'
 
     default_types_qs = RSSTypes.objects.filter(active=True)
 
