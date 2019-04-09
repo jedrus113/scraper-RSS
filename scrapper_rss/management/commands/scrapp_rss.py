@@ -53,6 +53,6 @@ class Command(BaseCommand):
                         data=entry,
                     ))
                 RSSData.objects.bulk_create(data_to_save)
-                rss_type.last_fetch = parser.parse(now)
+                rss_type.last_fetch = now
                 rss_type.save()
             erorr_counter = 0
