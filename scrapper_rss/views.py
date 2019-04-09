@@ -14,13 +14,8 @@ class RssViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = RSSDataSerializer
     filter_backends = (
         django_filters.rest_framework.DjangoFilterBackend,
-        filters.SearchFilter,
-        django_filters.OrderingFilter
+        filters.OrderingFilter,
     )
-    filterset_fields = ('date', 'type__type')
-    ordering = '-date,-created_at'
-
-    def list(self, request, **kwargs):
-        queryset = self.get_queryset()
-        serializer = RSSDataSerializer(queryset, many=True)
-        return Response(serializer.data)
+    filterset_fields = 'date', 'type__type'
+    ordering_fields = ()
+    ordering = '-date', '-created_at'
